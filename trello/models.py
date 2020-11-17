@@ -7,3 +7,13 @@ class Board(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.id}"
+
+
+class Column(models.Model):
+
+    name = models.CharField(max_length=200)
+    board = models.ForeignKey(
+        Board,
+        on_delete=models.CASCADE,
+        related_name='columns', # <- direct equivalent to has_many :columns
+    )
