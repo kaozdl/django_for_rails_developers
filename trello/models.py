@@ -17,3 +17,15 @@ class Column(models.Model):
         on_delete=models.CASCADE,
         related_name='columns', # <- direct equivalent to has_many :columns
     )
+
+
+class Card(models.Model):
+
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+
+    column = models.ForeignKey(
+        Column,
+        on_delete=models.CASCADE,
+        related_name='cards',
+    )
