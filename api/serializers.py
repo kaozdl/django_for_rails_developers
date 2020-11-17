@@ -11,3 +11,25 @@ class BoardSerializer(serializers.ModelSerializer):
             'id',
             'name',
         )
+
+
+class ColumnSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Column
+        fields = (
+            'id',
+            'board',
+            'name',
+        )
+
+
+class CardSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Card
+        fields = (
+            'name',
+            'description',
+            'column',
+        )

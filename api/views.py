@@ -7,3 +7,15 @@ class BoardViewSet(viewsets.ModelViewSet):
 
     queryset = models.Board.objects.all()
     serializer_class = serializers.BoardSerializer
+
+
+class ColumnViewSet(viewsets.ModelViewSet):
+
+    queryset = models.Column.objects.all()
+    serializer_class = serializers.ColumnSerializer
+
+
+class CardViewSet(viewsets.ModelViewSet):
+
+    queryset = models.Card.objects.all()
+    serializer_class = serializers.CardSerializer
