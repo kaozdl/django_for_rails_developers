@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # Our apps
     'trello',
+    'api',
 ]
 
 MIDDLEWARE = [
