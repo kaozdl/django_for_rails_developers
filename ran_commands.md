@@ -1,3 +1,4 @@
+```
 mkvirtualenv django_for_rails_developers
 pip install pipenv
 pipenv install django
@@ -18,10 +19,11 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 pipenv install djangorestframework
-# edit django_trello/settings.py
+# edit django_trello/settings.py (install djangorestframework)
 python manage.py startapp api
-# edit django_trello/settings.py
-# create api/serializers.py
-# edit api/views.py
-# create api/urls.py
-# edit django_trello/urls.py
+# edit django_trello/settings.py (install the newly created api app)
+# create api/serializers.py (add a serializer for each model)
+# edit api/views.py (add a viewset for each serializer)
+# create api/urls.py (register your viewsets urls)
+# edit django_trello/urls.py (register your api urls)
+```
