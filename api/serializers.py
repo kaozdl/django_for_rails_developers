@@ -3,27 +3,6 @@ from rest_framework import serializers
 from trello import models
 
 
-class BoardSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.Board
-        fields = (
-            'id',
-            'name',
-        )
-
-
-class ColumnSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.Column
-        fields = (
-            'id',
-            'board',
-            'name',
-        )
-
-
 class CardSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -32,4 +11,31 @@ class CardSerializer(serializers.ModelSerializer):
             'name',
             'description',
             'column',
+        )
+
+
+class ColumnSerializer(serializers.ModelSerializer):
+
+    cards = CardSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = models.Column
+        fields = (
+            'id',
+            'board',
+            'name',
+            'cards',
+        )
+
+
+class BoardSerializer(serializers.ModelSerializer):
+
+    columns = ColumnSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = models.Board
+        fields = (
+            'id',
+            'name',
+            'columns',
         )
