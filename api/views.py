@@ -5,13 +5,13 @@ from api import serializers
 # Create your views here.
 class BoardViewSet(viewsets.ModelViewSet):
 
-    queryset = models.Board.objects.all()
+    queryset = models.Board.objects.prefetch_related('columns', 'columns__cards')
     serializer_class = serializers.BoardSerializer
 
 
 class ColumnViewSet(viewsets.ModelViewSet):
 
-    queryset = models.Column.objects.all()
+    queryset = models.Column.objects.prefetch_related('cards')
     serializer_class = serializers.ColumnSerializer
 
 
